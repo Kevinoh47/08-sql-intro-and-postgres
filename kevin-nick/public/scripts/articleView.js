@@ -105,7 +105,7 @@ articleView.create = () => {
   });
 
   $('#export-field').show();
-  $('#article-json').val(`${JSON.stringify(article)},`);
+  //$('#article-json').val(`${JSON.stringify(article)},`); //no longer necessary?
 };
 
 articleView.submit = event => {
