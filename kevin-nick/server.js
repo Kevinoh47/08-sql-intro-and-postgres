@@ -15,6 +15,8 @@ const conString = 'postgres://localhost:5432/';
 
 const client = new pg.Client( {connectionString: conString });
 
+//console.log('client: ', client); //this logs to our server console...
+
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
 
@@ -37,7 +39,11 @@ app.get('/new-article', (request, response) => {
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // PUT YOUR RESPONSE HERE
+<<<<<<< HEAD
   client.query('SELECT * FROM articles')
+=======
+  client.query('select * from articles')
+>>>>>>> 8d8eedc5df887e22665ffa64c9ed0bc27ec99aa2
     .then(function(result) {
       response.send(result.rows);
     })
@@ -135,6 +141,8 @@ app.listen(PORT, () => {
 //////// ** DATABASE LOADER ** ////////
 ////////////////////////////////////////
 function loadArticles() {
+  //console.log('calling loadArticles() ...');
+
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // PUT YOUR RESPONSE HERE
 
@@ -160,6 +168,8 @@ function loadArticles() {
 }
 
 function loadDB() {
+  //console.log('calling loadDB!!'); 
+
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // PUT YOUR RESPONSE HERE
   client.query(`
@@ -172,6 +182,7 @@ function loadDB() {
       published_on DATE,
       body TEXT NOT NULL);`)
     .then(() => {
+      //console.log('calling client.query success promise...');
       loadArticles();
     })
     .catch(err => {

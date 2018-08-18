@@ -76,7 +76,7 @@ articleView.setTeasers = () => {
 
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
-  $('#export-field').hide();
+  // $('#export-field').hide(); // I believe the instructions indicate that this should be removed???
   $('#article-json').on('focus', function(){
     this.select();
   });
@@ -105,7 +105,7 @@ articleView.create = () => {
   });
 
   $('#export-field').show();
-  //$('#article-json').val(`${JSON.stringify(article)},`); //no longer necessary?
+  //$('#article-json').val(`${JSON.stringify(article)},`); // I believe the instructions indicate that this should be removed???
 };
 
 articleView.submit = event => {
