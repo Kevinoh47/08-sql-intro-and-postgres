@@ -1,16 +1,5 @@
 ## Lab 8 - Testing CRUD operations in the console
 
-/* NOTE: I added this table to the kilovolt database
-CREATE TABLE Articles(
-   id SERIAL PRIMARY KEY NOT NULL,
-   author         VARCHAR(255),
-   author_url     VARCHAR(255),
-   category       VARCHAR(255),
-   published_on   DATE,
-   body TEXT
-);
-*/
-
 ### Create a record (POST)
 
 (The `insertRecord` method is written for you, so this should work as soon as you get your server running.)
