@@ -11,7 +11,7 @@ const app = express();
 // const conString = 'postgres://USER:PASSWORD@HOST:PORT/DBNAME';
 
 // Mac:
-const conString = 'postgres://localhost:5432/kilovolt';
+const conString = 'postgres://localhost:5432/';
 
 const client = new pg.Client( {connectionString: conString });
 
@@ -37,7 +37,7 @@ app.get('/new-article', (request, response) => {
 app.get('/articles', (request, response) => {
   // COMMENTed: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // This route encompasse the following: step 2) request, step 3) select from database (the RETRIEVE portion of CRUD), step 4) return the result to server.js, and 5) respond with the results to the browser. This route is called by the Article.fetchAll() method in article.js.
-  client.query('select * from articles')
+  client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
     })
